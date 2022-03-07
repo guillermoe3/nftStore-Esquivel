@@ -1,1 +1,1 @@
-App en React
+NFT Store
