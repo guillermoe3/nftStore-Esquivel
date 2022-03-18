@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton'
 import Button from '@mui/material/Button'
+import {Box} from '@mui/material'
 
 import CartWidget from "./CartWidget"
 import Login from "./Login"
@@ -24,8 +25,10 @@ function NavBar(){
                   
                 <Typography variant="h6" sx={{flexGrow:1}}>
                     NFT Store
-                  
                 </Typography>
+                <Box sx={{
+                    marginRight:70
+                }}>
                 <Button variant="text" color="inherit" >
                   Store
                 </Button>
@@ -35,6 +38,7 @@ function NavBar(){
                 <Button variant="text" color="inherit" >
                   Actividad
                 </Button>
+                </Box>
 
                   <CartWidget/>
                   <Login/>
