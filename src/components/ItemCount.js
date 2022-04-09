@@ -7,8 +7,8 @@ function ItemCount(props) {
    
     let stock = parseInt(props.stock);
     let initial = parseInt(props.initial);
-    console.log("Este es el stock"+stock)
-    console.log("Este es el initial"+initial)
+    //console.log("Este es el stock"+stock)
+    //console.log("Este es el initial"+initial)
 
     const [count, setCount] = useState(initial);
 
