@@ -1,1 +1,1 @@
-NFT Store
+Coffee Store
