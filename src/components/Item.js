@@ -1,8 +1,7 @@
-import Button from '@mui/material/Button'
-import { useState } from "react"
-import { Card, CardMedia, CardContent, Typography, CardActions, Box} from '@mui/material'
+import { Card, CardMedia, CardContent, Typography, Box} from '@mui/material'
 import ItemCount from './ItemCount';
 import {Link} from "react-router-dom"
+//import {Link } from "@mui/material"
 
 
 
@@ -10,28 +9,20 @@ import {Link} from "react-router-dom"
 function Item({product}) {
 
 
-    const onAdd = (count) => {
-        //console.log(count);
-    }
-
-    //Uso valores randoms
-    let stockRandom = Math.floor(Math.random()*10);
-    let initialRandom = Math.floor(Math.random()*10);
-
-    
-
     return (
         <div>
 
-
+        
             <Card sx={{ width: 345, margin: 10}}>
+            <Link to={`/item/${product.id}`} style={{textDecoration:"none"}}> 
                 <CardMedia
                     title={product.title}
                     component="img"
                     alt="green iguana"
-                    height="140"
+                    height="350"
                     image={product.pictureUrl}
                 />
+                </Link>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                     {product.title}
@@ -43,17 +34,16 @@ function Item({product}) {
                      </Typography>
                      <br/>
             
-                     <Link to={`/item/${product.id}`}> 
+                     <Link to={`/item/${product.id}`} style={{textDecoration:"none"}}> 
                 Ver detalle
                 </Link>
+                
                 </CardContent>
+                
 
-                <Box sx={{padding:2.5}}>
-
-                    <ItemCount stock={stockRandom} initial={initialRandom} onAdd={onAdd}/>
-                </Box>
                     
             </Card>
+            
 
         </div>
     )

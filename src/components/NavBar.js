@@ -21,7 +21,7 @@ function NavBar(){
             <AppBar position="static" color="primary">
               <Toolbar>
                   <IconButton aria-label="menu" color="inherit" onClick={null}
-                  sx={{ my: 2, color: 'white', margin: 2}}>
+                  sx={{ my: 2, color: 'white', margin: 3}}>
                   <MenuIcon/>
                   </IconButton>
                   
@@ -29,7 +29,7 @@ function NavBar(){
                 Coffee Store
                 </Typography>
                 <Box sx={{
-                    marginRight:70
+                    marginRight:"15%"
                 }}>
                   
                 <Button variant="text" color="inherit" >

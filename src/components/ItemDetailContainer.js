@@ -7,9 +7,6 @@ function ItemDetailContainer() {
 
     const [product, setProduct] = useState("");
 
-    const params = useParams();
-    //console.log(params)
-
     const {id} = useParams();
 
     useEffect( () => {
@@ -19,13 +16,6 @@ function ItemDetailContainer() {
             }
         )
     }, [id] )
-
-    //console.log(id)
-    //
-
-
-    //console.log(product)
-
 
     return (
         <div>

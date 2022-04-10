@@ -1,9 +1,24 @@
 import {useState, useEffect} from "react"
-import {Box} from "@mui/material"
+import {Box, Button} from "@mui/material"
+import ItemCount from "./ItemCount"
+import {Link } from "react-router-dom"
+
 
 
 function ItemDetail ( {item} ){
     //console.log("Este es el item"+item.id)
+    // <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/>
+
+    const [quantity1, setQuantity] = useState(0)
+
+    const onAdd = (quantity) => {
+
+        console.log("Agregué al carrito la cantidad "+ quantity);
+        setQuantity(quantity);
+        console.log("la cantidad que llega del componente ItemCount es " + quantity1)
+    }
+
+
     return (
         <div style={{
             
@@ -28,8 +43,14 @@ function ItemDetail ( {item} ){
         <h2>id del producto: {item.id}</h2>
         <h2>Titulo: {item.title}</h2>
         <h2>Descripción: {item.description}</h2>
+        <h2>Categoria: {item.category}</h2>
         <h2>Precio: {item.price}</h2>
+
+        <Box sx={{padding:2.5}}>
         
+        {quantity1 === 0 ? <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/> : <Button size = "small" variant="outlined" color="primary"><Link to="/cart"> Ir al carrito </Link></Button>}
+        </Box>
+      
         
         </Box>
         </div>

@@ -1,14 +1,13 @@
 import Button from '@mui/material/Button'
 import { useState } from "react"
-import { Card, CardMedia, CardContent, Typography, CardActions, Box} from '@mui/material'
+import {Typography, CardActions, Box} from '@mui/material'
 
 
 function ItemCount(props) {
    
     let stock = parseInt(props.stock);
     let initial = parseInt(props.initial);
-    //console.log("Este es el stock"+stock)
-    //console.log("Este es el initial"+initial)
+
 
     const [count, setCount] = useState(initial);
 
@@ -22,7 +21,7 @@ function ItemCount(props) {
 
     }
 
-
+//onClick={() => (stock>initial) ? props.onAdd(count) : 0}
 
 
     return (
@@ -53,7 +52,7 @@ function ItemCount(props) {
                 </Box>
                 <Box 
                 sx={{display:"flex", alignItems:"center", justifyContent:"center", marginBottom: "10"}}>
-                <Button size = "small" variant="outlined" color="primary" onClick={() => (stock>initial) ? props.onAdd(count) : 0}>
+                <Button size = "small" variant="outlined" color="primary" onClick={() => props.onAdd(count)}>
                         Agregar al Carrito
                     </Button>
                 </Box >
