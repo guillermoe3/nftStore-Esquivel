@@ -1,24 +1,35 @@
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import {Box, Button} from "@mui/material"
 import ItemCount from "./ItemCount"
 import {Link } from "react-router-dom"
+import CartContext from "../context/CartContext"
+
 
 
 
 function ItemDetail ( {item} ){
-    //console.log("Este es el item"+item.id)
-    // <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/>
+
+
+    const {addItem, isInCart, getItemInCart} = useContext(CartContext);
 
     const [quantity1, setQuantity] = useState(0)
 
     const onAdd = (quantity) => {
 
-        console.log("Agregué al carrito la cantidad "+ quantity);
+        console.log("Agregué al carrito la cantidad quantity "+ quantity);
         setQuantity(quantity);
-        console.log("la cantidad que llega del componente ItemCount es " + quantity1)
+        addItem(item, quantity);
     }
+    console.log("la cantidad que llega del componente ItemCount quantity1 es " + quantity1)
 
 
+
+    const getElementCart = (id) => {
+
+        let element = getItemInCart(id);
+        return element;
+
+    }
     return (
         <div style={{
             
@@ -47,8 +58,34 @@ function ItemDetail ( {item} ){
         <h2>Precio: {item.price}</h2>
 
         <Box sx={{padding:2.5}}>
+
+        {isInCart(item.id) 
+            ? 
         
-        {quantity1 === 0 ? <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/> : <Button size = "small" variant="outlined" color="primary"><Link to="/cart"> Ir al carrito </Link></Button>}
+            <Button size = "small" variant="outlined" color="primary">
+                  <Link to="/cart"> Ir al carrito </Link>
+             </Button>
+
+
+            :
+            <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/> 
+
+
+          }
+        
+        {/*quantity1 === 0 
+
+
+
+
+        ? 
+            <ItemCount stock={item.stock} initial="0" onAdd={onAdd}/> 
+        :
+            <Button size = "small" variant="outlined" color="primary">
+                <Link to="/cart"> Ir al carrito </Link>
+            </Button>
+            
+        */}
         </Box>
       
         
